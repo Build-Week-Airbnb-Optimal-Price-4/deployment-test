@@ -42,16 +42,18 @@ def create_app():
         bag_of_words = listings["bag_of_words"]
 
 
-        features = {'accommodates': accommodates,
-        'bathrooms': bathrooms,
-        'bedrooms': bedrooms,
-        'size': size,
-        'room_type': room_type,
-        'bed_type': bed_type,
-        'minimum_nights': minimum_nights,
-        'instant_bookable': instant_bookable,
-        'cancellation_policy': cancellation_policy,
-        'bag_of_words': bag_of_words}
+        features = {
+                    'accommodates': accommodates,
+                    'bathrooms': bathrooms,
+                    'bedrooms': bedrooms,
+                    'size': size,
+                    'room_type': room_type,
+                    'bed_type': bed_type,
+                    'minimum_nights': minimum_nights,
+                    'instant_bookable': instant_bookable,
+                    'cancellation_policy': cancellation_policy,
+                    'bag_of_words': bag_of_words
+                    }
 
 
         # Convert data into DataFrame:
@@ -60,7 +62,8 @@ def create_app():
 
         # Make prediction for optimal price:
         prediction = pipeline1.predict(df.iloc[0:1])
-        output = {'results': int(prediction)}
+        output = float(prediction[0])
+        print(prediction)
 
         # Return JSON object:
         return jsonify(output)
