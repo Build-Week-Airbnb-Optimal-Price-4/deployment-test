@@ -17,7 +17,7 @@ def create_app():
     APP = Flask(__name__)
 
     # load pipeline pickle:
-    pipeline1 = load('airbnb_api/test2_regression.pkl')
+    pipeline1 = load('airbnb_api/test3_regression.pkl')
 
 
     @APP.route('/', methods=['POST'])
@@ -85,7 +85,8 @@ def create_app():
         #output = pd.DataFrame(output, index=[0]).values.tolist()
 
         # Return JSON object:
-        # return jsonify(int(final_output[0:3]))
-        return jsonify(int(100))
+        #return jsonify(int(final_output[0:3]))
+        return jsonify(int(output))
+        #return jsonify(int(100))
 
     return APP
