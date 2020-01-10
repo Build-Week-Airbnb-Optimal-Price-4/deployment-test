@@ -1,11 +1,14 @@
 import spacy
 from spacy.tokenizer import Tokenizer
+# import en_core_web_sm
+
 
 def get_lemmas(text):
 
-    #nlp = spacy.load("en_core_web_sm-2.2.5", path=".airbnb_api/")
-    #nlp = spacy.load("en_core_web_sm-2.2.5", path="/")
+    # nlp = spacy.load("en_core_web_sm-2.2.5", path="airbnb_api/")
+    nlp = spacy.load("en_core_web_sm-2.2.5", path="./")
     # nlp = spacy.load("en_core_web_sm")
+    # nlp = en_core_web_sm.load()
 
     tokenizer = Tokenizer(nlp.vocab)
 

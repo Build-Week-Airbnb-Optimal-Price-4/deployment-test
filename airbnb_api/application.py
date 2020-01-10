@@ -4,11 +4,11 @@ import numpy as np
 import pandas as pd
 import pickle
 from joblib import load
-import xgboost as xgb
+# import xgboost as xgb
 import os
 
 # local import:
-#from .api_function import get_lemmas
+from .api_function import get_lemmas
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -59,7 +59,7 @@ def create_app():
 
         # Convert data into DataFrame:
         df = pd.DataFrame([listings], index=[0])
-        #df.bag_of_words = get_lemmas(df.bag_of_words.iloc[0])
+        df.bag_of_words = get_lemmas(df.bag_of_words.iloc[0])
 
         # Make prediction for optimal price:
         prediction = pipeline1.predict(df.iloc[0:1])
